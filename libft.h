@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/20 14:00:43 by kbatz            ###   ########.fr       */
+/*   Updated: 2018/12/24 19:33:20 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,5 +138,6 @@ void					ft_stack_push(t_stack **stack, \
 void					*ft_realloc(void *src, size_t size, long dif);
 void					*ft_min(void *a, void *b, size_t size);
 void					*ft_max(void *a, void *b, size_t size);
+void					*ft_swap(void *a, void *b, size_t size);
 
 #endif
