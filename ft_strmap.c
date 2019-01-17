@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 23:08:56 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/02 09:53:32 by kbatz            ###   ########.fr       */
+/*   Updated: 2018/12/22 19:03:05 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int		len;
+	size_t	len;
 	char	*res;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
 	res = ft_strnew(len);

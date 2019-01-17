@@ -6,25 +6,20 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 16:20:02 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/03 12:45:02 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/17 17:06:19 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_queue_push(t_queue **queue, void const *content, size_t content_size)
+void	ft_queue_push(t_queue *queue, t_elem *tmp)
 {
-	t_queue		*buf;
-
-	if (!queue)
+	if (!tmp)
 		return ;
-	buf = *queue;
-	if (buf)
-	{
-		while (buf->next)
-			buf = buf->next;
-		buf->next = ft_queue_new(content, content_size);
-	}
+	if (queue->len)
+		queue->end->next = tmp;
 	else
-		*queue = ft_queue_new(content, content_size);
+		queue->start = tmp;
+	queue->end = tmp;
+	queue->len++;
 }

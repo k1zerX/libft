@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/24 19:33:20 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/17 17:11:33 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include "get_next_line.h"
 
 typedef struct			s_list
 {
@@ -29,22 +30,28 @@ typedef struct			s_btree
 	void				*content;
 	size_t				content_size;
 	char				color;
-	struct s_btree	*left;
-	struct s_btree	*right;
+	struct s_btree		*left;
+	struct s_btree		*right;
 }						t_btree;
 
-typedef struct			s_queue
+typedef struct			s_elem
 {
 	void				*content;
 	size_t				content_size;
-	struct s_queue		*next;
+	struct s_elem		*next;
+}						t_elem;
+
+typedef struct			s_queue
+{
+	t_elem				*start;
+	t_elem				*end;
+	size_t				len;
 }						t_queue;
 
 typedef struct			s_stack
 {
-	void				*content;
-	size_t				content_size;
-	struct s_stack		*next;
+	t_elem				*start;
+	size_t				len;
 }						t_stack;
 
 int						ft_atoi(const char *str);
@@ -126,18 +133,19 @@ void					ft_btree_insert(t_btree **start, \
 							int (*cmp)(const void *, const void *, size_t));
 void					ft_btree_bfs(t_btree *start, \
 							void (*f)(t_btree *));
-t_btree					ft_btree_search(t_btree *start, void *content, size_t content_size);
-t_queue					*ft_queue_pop(t_queue **queue);
-void					ft_queue_push(t_queue **queue, \
-							void const *content, size_t content_size);
-t_queue					*ft_queue_new(void const *content, size_t content_size);
-t_stack					*ft_stack_new(void const *content, size_t content_size);
-t_stack					*ft_stack_pop(t_stack **stack);
-void					ft_stack_push(t_stack **stack, \
-							void const *content, size_t content_size);
+t_btree					ft_btree_search(t_btree *start, void *content, \
+							size_t content_size);
+t_elem					*ft_queue_pop(t_queue *queue);
+void					ft_queue_push(t_queue *queue, t_elem *tmp);
+t_queue					*ft_queue_new(void);
+t_stack					*ft_stack_new(void);
+t_elem					*ft_stack_pop(t_stack *stack);
+void					ft_stack_push(t_stack *stack, t_elem *tmp);
+t_elem					*ft_new_elem(void *content, \
+							size_t content_size, char copy);
 void					*ft_realloc(void *src, size_t size, long dif);
 void					*ft_min(void *a, void *b, size_t size);
 void					*ft_max(void *a, void *b, size_t size);
-void					*ft_swap(void *a, void *b, size_t size);
+char					*ft_itoa_base(int n, int base);
 
 #endif

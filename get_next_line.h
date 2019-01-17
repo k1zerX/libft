@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/24 18:52:56 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/24 19:29:05 by kbatz            ###   ########.fr       */
+/*   Created: 2018/11/25 23:20:28 by kbatz             #+#    #+#             */
+/*   Updated: 2019/01/08 19:35:48 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_swap(void *a, void *b, size_t size)
+# define BUFF_SIZE 4
+
+# include "libft.h"
+
+typedef struct		s_file
 {
-	while (size-- > 0)
-	{
-		*(unsigned char *)a ^= *(unsigned char *)b;
-		*(unsigned char *)b ^= *(unsigned char *)a;
-		*(unsigned char *)a++ ^= *(unsigned char *)b++;
-	}
-}
+	char			*line;
+	int				fd;
+}					t_file;
+
+int					get_next_line(const int fd, char **line);
+
+#endif

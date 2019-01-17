@@ -6,20 +6,21 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 16:25:19 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/03 12:47:13 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/17 17:03:44 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_stack		*ft_stack_pop(t_stack **stack)
+t_elem		*ft_stack_pop(t_stack *stack)
 {
-	t_stack		*tmp;
+	t_elem		*tmp;
 
-	if (!stack || !*stack)
+	if (!stack->len)
 		return (NULL);
-	tmp = *stack;
-	*stack = (*stack)->next;
+	tmp = stack->start;
+	stack->start = tmp->next;
+	stack->len--;
 	tmp->next = NULL;
 	return (tmp);
 }

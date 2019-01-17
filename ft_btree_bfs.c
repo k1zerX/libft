@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:41:56 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/20 13:28:09 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/17 17:12:05 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 void			ft_btree_bfs(t_btree *start, void (*f)(t_btree *))
 {
 	t_queue		*queue;
-	t_btree	*tmp;
+	t_btree		*tmp;
 
 	if (!start || !f)
 		return ;
-	queue = NULL;
-	ft_queue_push(&queue, start, sizeof(t_btree));
-	while (queue)
+	queue = ft_memalloc(sizeof(*queue));
+	ft_queue_push(queue, ft_new_elem(start, sizeof(t_btree), 1));
+	while (queue->len)
 	{
-		tmp = (t_btree *)ft_queue_pop(&queue)->content;
+		tmp = (t_btree *)ft_queue_pop(queue)->content;
 		(*f)(tmp);
 		free(tmp->content);
 		free(tmp);
 		if (tmp->left)
-			ft_queue_push(&queue, tmp->left, sizeof(t_btree));
+			ft_queue_push(queue, ft_new_elem(tmp->left, sizeof(t_btree), 1));
 		if (tmp->right)
-			ft_queue_push(&queue, tmp->right, sizeof(t_btree));
+			ft_queue_push(queue, ft_new_elem(tmp->right, sizeof(t_btree), 1));
 	}
 }
