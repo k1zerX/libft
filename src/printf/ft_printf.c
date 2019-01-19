@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 21:20:44 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/19 19:30:18 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/19 19:54:36 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_conv			g_conv[] =
 {
-	{'c', &f_c},
+	{'c', &f_c},/*
 	{'s', &f_s},
 	{'p', &f_p},
 	{'d', &f_d},
@@ -30,7 +30,7 @@ t_conv			g_conv[] =
 	{'g', &f_g},
 	{'b', &f_b},
 	{'r', &f_r},
-	{'k', &f_k},
+	{'k', &f_k},*/
 	{'\0', NULL}
 };
 
@@ -73,6 +73,6 @@ int		main(void)
 	char	c;
 
 	c = 'Z';
-	ft_printf("blabla %c sdf f", c);
+	ft_printf("blabla %c sdf f\n", c);
 	return (0);
 }
