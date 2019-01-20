@@ -6,12 +6,13 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 21:20:44 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/20 17:57:14 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/20 20:48:17 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+void    print_bits(void *a, unsigned long size);
 
 t_conv			g_conv[] =
 {
@@ -73,10 +74,19 @@ int		main(void)
 	char	c;
 
 	c = 'Z';
-	ft_printf("---\n1 = %f---\n", -3.0);
-	ft_printf("---\n2 = %f---\n", -7.0);
-	ft_printf("---\n3 = %f---\n", -15.0);
-	ft_printf("---\n4 = %f---\n", -31.0);
-	ft_printf("---\n5 = %f---\n", -63.0);
+	/*ft_printf("%f", -3.0);
+	ft_printf("%f", -7.0);
+	ft_printf("%f", -15.0);
+	ft_printf("%f", -31.0);
+	ft_printf("%f", -63.0);*/
+	double j = -100.0;
+	while (j <= 100.0)
+	{
+		if (!ft_printf("%f", j))
+			printf("ALERT");
+		j++;
+	}
+	*((long long int *)&j) = 0x7FE0000000000001;
+	printf("%-+1000f\n", j);
 	return (0);
 }
