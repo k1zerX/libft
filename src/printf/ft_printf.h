@@ -6,7 +6,7 @@
 /*   By: etuffleb <etuffleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 21:39:27 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/20 21:26:13 by etuffleb         ###   ########.fr       */
+/*   Updated: 2019/01/21 00:17:08 by etuffleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		f_i(va_list ap, const char *restrict str, int len);
 int		f_o(va_list ap, const char *restrict str, int len);
 int		f_u(va_list ap, const char *restrict str, int len);
 int		f_x(va_list ap, const char *restrict str, int len);
-int		f_X(va_list ap, const char *restrict str, int len);
+int		f_big_x(va_list ap, const char *restrict str, int len);
 int		f_f(va_list ap, const char *restrict str, int len);
 int		f_e(va_list ap, const char *restrict str, int len);
 int		f_g(va_list ap, const char *restrict str, int len);
