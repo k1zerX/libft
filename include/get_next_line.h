@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_f.c                                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/19 19:33:54 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/20 17:56:35 by kbatz            ###   ########.fr       */
+/*   Created: 2018/11/25 23:20:28 by kbatz             #+#    #+#             */
+/*   Updated: 2019/01/08 19:35:48 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int     f_f(va_list ap, const char *restrict str, int len)
+# define BUFF_SIZE 4
+
+# include "libft.h"
+
+typedef struct		s_file
 {
-	double			a;
-	unsigned char	*buf;
-	int				p;
+	char			*line;
+	int				fd;
+}					t_file;
 
-	a = va_arg(ap, double);
-	buf = (unsigned char *)&a;
-	p = ((buf[7] & 127) | (buf[6] >> 4)) - 63;
-	//if (buf[7] & 128)
-	//	write(1, "-", 1);
-	printf("%d\n", p);
-	return (0);
-}
+int					get_next_line(const int fd, char **line);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 19:57:06 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/19 20:49:38 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/20 17:29:52 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	print_bits(void *a, unsigned long size)
 		j = 8;
 		while (--j >= 0)
 		{
-			printf("%d", ((*(unsigned char *)a >> j) & 1));
+			printf("%d", ((((unsigned char *)a)[size] >> j) & 1));
+			if ((7 - size) * 8 + (8 - j) == 1 || (7 - size) * 8 + (8 - j) == 12)
+				printf(" ");
 		}
-		a++;
-		printf(" ");
 	}
 	printf("\n");
 }
 
 int		main(void)
 {
-	float f;
+	double f;
 	long long int b;
 
 	f = 1.0 / 8.0 + 15.0;
