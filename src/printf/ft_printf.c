@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 21:20:44 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/20 20:48:17 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/21 19:56:51 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		ft_printf(const char *restrict str, ...)
 				{
 					if (g_conv[i].conv == str[len])
 						res += g_conv[i].f(ap, str, len);
+						//res += ft_print(format(ap, str, len), g_conv[i].f(ap))
 					//printf("%c", str[len]);
 				}
 				if (!g_conv[i].conv)
@@ -87,6 +88,6 @@ int		main(void)
 		j++;
 	}
 	*((long long int *)&j) = 0x7FE0000000000001;
-	printf("%-+1000f\n", j);
+	printf("%*d\n", 100, (int)j);
 	return (0);
 }

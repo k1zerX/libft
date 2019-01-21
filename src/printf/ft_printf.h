@@ -6,7 +6,7 @@
 /*   By: etuffleb <etuffleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 21:39:27 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/21 20:08:50 by etuffleb         ###   ########.fr       */
+/*   Updated: 2019/01/21 20:19:11 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ typedef struct	s_conv
 	char		conv;
 	int			(*f)(va_list ap, const char * restrict str, int len);
 }				t_conv;
+
+typedef struct	s_format
+{
+	char		flags;
+	int			width;
+	int			precision;
+}				t_fromat;
 
 int		ft_printf(const char *restrict str, ...);
 
