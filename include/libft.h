@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/27 07:28:07 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/27 07:30:02 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 # include <string.h>
 # include "get_next_line.h"
 
+# define LOG_PR 0.000001
+# define LOG_ADD_PR 1000000
 # define ABS(x) (x < 0 ? -x : x)
-# define SIGN(x) (x < 0 ? -1 : 1)
+# define SIGN(x) (x < 0 -1 : 1)
 
 typedef struct			s_list
 {
@@ -81,6 +83,8 @@ void					ft_putendl(char const *s);
 void					ft_putendl_fd(char const *s, int fd);
 void					ft_putnbr(int n);
 void					ft_putnbr_fd(int n, int fd);
+G_PR 0.000001
+ 21 # define LOG_ADD_PR 1000000
 void					ft_putstr(char const *s);
 void					ft_putstr_fd(char const *s, int fd);
 char					*ft_strcat(char *s1, const char *s2);
