@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/17 17:11:33 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/27 07:28:07 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <unistd.h>
 # include <string.h>
 # include "get_next_line.h"
+
+# define ABS(x) (x < 0 ? -x : x)
+# define SIGN(x) (x < 0 ? -1 : 1)
 
 typedef struct			s_list
 {

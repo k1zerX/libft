@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:02:41 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/21 19:56:34 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/21 21:04:06 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,43 @@ t_format	format(va_list ap, const char *restrict format, int len)
 	}
 	if (f.flags & 32)
 		f.flags &= ~(1 << 6);
-	if (f.flags & 16)
+	if (f.flags & 16 || f.flags & 64)
 		f.flags &= ~(1 << 3);
 	return (f);
 }
 
+void		ft_write(char *str, int len, int *res)
+{
+	write(1, str, len);
+	*res += len;
+}
+
 int			ft_print(t_format f, char *str)
 {
-	d
+	int		res;
+	int		len;
+
+	len = ft_strlen(str);
+	c = f.flags & 64 ? '0' : ' ';
+	f.precision += f.width;
+	f.width -= len;
+	if ((f.flags & 16) && is_number(*str) && !(res = 0))
+		f.width--;
+	if (f.flags & 8)
+		f.width--;
+	f.precision -= f.width;
+	f.width -= f.precision;
+	if (f.flags & 32)
+		while (f.width-- > 0)
+			ft_write(&c, 1, &res);
+	if ((f.flags & 16) && is_number(*str))
+		ft_write("+", 1, &res);
+	if (f.flags & 8)
+		ft_write(" ", 1, &res);
+	while (f.precision-- > 0)
+		ft_write("0", 1, &res);
+	ft_write(str, len, &res);
+	while (f.width-- > 0)
+		ft_write(&c, 1, &res);
+	return (res);
 }

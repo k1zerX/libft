@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 21:20:44 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/21 19:56:51 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/01/21 21:06:11 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int		ft_printf(const char *restrict str, ...)
 				while (g_conv[++i].conv)
 				{
 					if (g_conv[i].conv == str[len])
-						res += g_conv[i].f(ap, str, len);
-						//res += ft_print(format(ap, str, len), g_conv[i].f(ap))
+						//res += g_conv[i].f(ap, str, len);
+						res += ft_print(format(ap, str, len), g_conv[i].f(ap))
 					//printf("%c", str[len]);
 				}
 				if (!g_conv[i].conv)
