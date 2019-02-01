@@ -6,7 +6,7 @@
 #    By: kbatz <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:33:15 by kbatz             #+#    #+#              #
-#    Updated: 2019/01/23 16:07:21 by kbatz            ###   ########.fr        #
+#    Updated: 2019/02/01 08:53:30 by kbatz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ vpath %.o $(OBJDIR)
 
 OBJ		=	$(SRC:%.c=%.o)
 
-#$(foreach S, $(SRCS), \
+$(foreach S, $(SRCS), \
 	SRC += $(addprefix $(SRCDIR),$(S)) \
 )
 

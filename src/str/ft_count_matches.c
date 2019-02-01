@@ -1,46 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log.c                                           :+:      :+:    :+:   */
+/*   ft_count_matches.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/26 17:48:48 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/27 07:30:36 by kbatz            ###   ########.fr       */
+/*   Created: 2019/02/01 09:21:23 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/01 09:23:18 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double		ft_log(double n)
+int		ft_count_matches(const char *str, const char *match)
 {
-	int		i;
-	double	res;
-	double	x;
-	char	sign;
-	double	p;
+	int		k;
 
-	p = 0.000001;
-	sign = 1;
-	if (n > 1)
-	{
-		n = 1 / n;
-		sign = -1;
-	}
-	n--;
-	x = n;
-	res = x;
-	i = 0;
-	while (++i < LOG_PRECISION && (x > 0 ? x : -x) > p)
-	{
-		x *= -n;
-		res += x / i;
-	}
-	return (res * sign);
-}
-
-int		main(void)
-{
-	printf("%f", 100 * ft_log(2) / ft_log(10));
-	return (0);
+	while (ft_strstr(str, match))
+		k++;
+	return (k);
 }

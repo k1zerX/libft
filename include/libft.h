@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/27 07:30:02 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/02/01 09:32:25 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@
 
 # define LOG_PR 0.000001
 # define LOG_ADD_PR 1000000
-# define ABS(x) (x < 0 ? -x : x)
+
+# define ABS(x) (x < 0 ? -(x) : x)
 # define SIGN(x) (x < 0 -1 : 1)
+# define MIN(a, b) (a < b ? a : b)
+# define MAX(a, b) (a > b ? a : b)
 
 typedef struct			s_list
 {
