@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   ft_log.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 13:54:53 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/20 13:56:37 by kbatz            ###   ########.fr       */
+/*   Created: 2019/01/26 17:48:48 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/04 21:17:09 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_max(void *a, void *b, size_t size)
+double		ft_log(double n)
 {
-	if (ft_memcmp(a, b, size) < 0)
-		return (b);
-	return (a);
+	int		i;
+	double	res;
+	double	x;
+	char	sign;
+
+	sign = 1;
+	if (n > 1)
+	{
+		n = 1 / n;
+		sign = -1;
+	}
+	n--;
+	x = n;
+	res = x;
+	i = 0;
+	while (++i < LOG_ADD_PR && FT_ABS(x) > LOG_PR)
+	{
+		x *= -n;
+		res += x / i;
+	}
+	return (res * sign);
 }

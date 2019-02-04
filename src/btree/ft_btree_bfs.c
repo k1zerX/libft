@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:41:56 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/17 17:12:05 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/02/01 15:28:41 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			ft_btree_bfs(t_btree *start, void (*f)(t_btree *))
 
 	if (!start || !f)
 		return ;
-	queue = ft_memalloc(sizeof(*queue));
+	queue = ft_queue_new();
 	ft_queue_push(queue, ft_new_elem(start, sizeof(t_btree), 1));
 	while (queue->len)
 	{

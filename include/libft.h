@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/02/01 09:32:25 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/02/04 21:16:24 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,7 @@
 # include <unistd.h>
 # include <string.h>
 # include "get_next_line.h"
-
-# define LOG_PR 0.000001
-# define LOG_ADD_PR 1000000
-
-# define ABS(x) (x < 0 ? -(x) : x)
-# define SIGN(x) (x < 0 -1 : 1)
-# define MIN(a, b) (a < b ? a : b)
-# define MAX(a, b) (a > b ? a : b)
+# include "math.h"
 
 typedef struct			s_list
 {
@@ -86,8 +79,6 @@ void					ft_putendl(char const *s);
 void					ft_putendl_fd(char const *s, int fd);
 void					ft_putnbr(int n);
 void					ft_putnbr_fd(int n, int fd);
-G_PR 0.000001
- 21 # define LOG_ADD_PR 1000000
 void					ft_putstr(char const *s);
 void					ft_putstr_fd(char const *s, int fd);
 char					*ft_strcat(char *s1, const char *s2);
@@ -157,5 +148,7 @@ void					*ft_realloc(void *src, size_t size, long dif);
 void					*ft_min(void *a, void *b, size_t size);
 void					*ft_max(void *a, void *b, size_t size);
 char					*ft_itoa_base(int n, int base);
+void					ft_swap(void *a, void *b, size_t size);
+int						ft_isspace(int c);
 
 #endif

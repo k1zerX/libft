@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   math.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 13:51:12 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/20 13:56:39 by kbatz            ###   ########.fr       */
+/*   Created: 2019/02/04 21:14:48 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/04 21:17:33 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MATH_H
+# define MATH_H
 
-void	*ft_min(void *a, void *b, size_t size)
-{
-	if (ft_memcmp(a, b, size) < 0)
-		return (a);
-	return (b);
-}
+# define LOG_PR 0.000001
+# define LOG_ADD_PR 1000000
+
+# define FT_ABS(x) (x < 0 ? -(x) : x)
+# define FT_SIGN(x) (x < 0 -1 : 1)
+# define FT_MIN(a,b) (a < b ? a : b)
+# define FT_MAX(a,b) (a > b ? a : b)
+
+#endif
