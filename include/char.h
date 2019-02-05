@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   char.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/02/05 02:17:20 by kbatz            ###   ########.fr       */
+/*   Created: 2019/02/05 01:44:53 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/05 02:07:34 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef CHAR_H
+# define CHAR_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include "structs.h"
-# include "btree.h"
-# include "char.h"
-# include "gnl.h"
-# include "list.h"
-# include "mem.h"
-# include "put.h"
-# include "math.h"
-# include "queue.h"
-# include "rbtree.h"
-# include "stack.h"
-# include "str.h"
+#include "libft.h"
+
+int						ft_isalnum(int c);
+int						ft_isalpha(int c);
+int						ft_isascii(int c);
+int						ft_isdigit(int c);
+int						ft_isprint(int c);
+int						ft_isspace(int c);
+int						ft_tolower(int c);
+int						ft_toupper(int c);
 
 #endif

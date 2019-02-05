@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   gnl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/02/05 02:17:20 by kbatz            ###   ########.fr       */
+/*   Created: 2018/11/25 23:20:28 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/05 02:07:43 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef GNL_H
+# define GNL_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include "structs.h"
-# include "btree.h"
-# include "char.h"
-# include "gnl.h"
-# include "list.h"
-# include "mem.h"
-# include "put.h"
-# include "math.h"
-# include "queue.h"
-# include "rbtree.h"
-# include "stack.h"
-# include "str.h"
+#include "libft.h"
+
+# define BUFF_SIZE 30
+
+typedef struct		s_file
+{
+	char			*line;
+	int				fd;
+}					t_file;
+
+int					gnl(const int fd, char **line, int buff_size);
 
 #endif

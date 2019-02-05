@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   rbtree.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/02/05 02:17:20 by kbatz            ###   ########.fr       */
+/*   Created: 2019/02/05 00:59:09 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/05 02:12:10 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef RBTREE_H
+# define RBTREE_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include "structs.h"
-# include "btree.h"
-# include "char.h"
-# include "gnl.h"
-# include "list.h"
-# include "mem.h"
-# include "put.h"
-# include "math.h"
-# include "queue.h"
-# include "rbtree.h"
-# include "stack.h"
-# include "str.h"
+#include "libft.h"
+
+# define BLACK 0
+# define RED 1
+
+typedef struct			s_rbnode
+{
+	void				*content;
+	size_t				content_size;
+	char				color;
+	struct s_btree		*parent;
+	struct s_btree		*left;
+	struct s_btree		*right;
+}						t_rbnode;
+
+typedef struct			s_rbtree
+{
+	struct s_btree		*root;
+	size_t				height;
+}						t_rbtree;
 
 #endif

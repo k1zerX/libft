@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 22:53:09 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/08 19:35:04 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/02/05 02:19:15 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-t_list	*get_lst(t_list **all_data, int fd)
+t_list	*get_lst(t_list **all_data, int fd, int buff_size)
 {
 	t_file	struc;
 	t_list	*tmp;
 	t_list	*prev;
 
-	struc.line = ft_memalloc(BUFF_SIZE + 1);
+	struc.line = ft_memalloc(buff_size + 1);
 	struc.fd = fd;
 	if (!*all_data)
 	{
@@ -86,21 +86,22 @@ void	ft_lst_free(t_list **all_data, int fd)
 	ft_free(all_data);
 }
 
-int		get_next_line(const int fd, char **line)
+int		gnl(const int fd, char **line, int buff_size)
 {
 	static t_list	*all_data;
-	long			n;
+	ssize_t			n;
 	size_t			len;
 	char			*str;
-	char			buf[BUFF_SIZE];
 
-	if (!line || read(fd, buf, 0) == -1)
+	if (!buff_size)
+		buff_size = BUFF_SIZE;
+	if (!line || read(fd, *line, 0) == -1)
 		return (-1);
 	*line = NULL;
-	str = ((t_file *)get_lst(&all_data, fd)->content)->line;
+	str = ((t_file *)get_lst(&all_data, fd, buff_size)->content)->line;
 	if (!(len = str_rec(str, line, 1, ft_strlen(str))))
 		return (1);
-	while ((n = read(fd, str, BUFF_SIZE)) > 0)
+	while ((n = read(fd, str, buff_size)) > 0)
 	{
 		str[n] = 0;
 		if (!(len = str_rec(str, line, len, n)))

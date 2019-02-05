@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/02/05 02:17:20 by kbatz            ###   ########.fr       */
+/*   Created: 2019/02/05 00:56:48 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/05 02:12:41 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef STACK_H
+# define STACK_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include "structs.h"
-# include "btree.h"
-# include "char.h"
-# include "gnl.h"
-# include "list.h"
-# include "mem.h"
-# include "put.h"
-# include "math.h"
-# include "queue.h"
-# include "rbtree.h"
-# include "stack.h"
-# include "str.h"
+#include "libft.h"
+
+typedef struct			s_stack
+{
+	t_elem				*start;
+	size_t				len;
+}						t_stack;
+
+t_stack					*ft_stack_new(void);
+t_elem					*ft_stack_pop(t_stack *stack);
+void					ft_stack_push(t_stack *stack, t_elem *tmp);
 
 #endif

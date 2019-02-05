@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 17:38:13 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/20 14:02:10 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/02/05 02:18:40 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void			ft_btree_insert(t_btree **start, \
 		return ;
 	}
 	if ((*cmp)(content, (*start)->content, \
-				*(size_t *)ft_min(&(*start)->content_size, \
-				&content_size, sizeof(size_t))) < 0)
+				FT_MIN((*start)->content_size, \
+				content_size)) < 0)
 	{
 		if ((*start)->left)
 			ft_btree_insert(&(*start)->left, content, content_size, cmp);

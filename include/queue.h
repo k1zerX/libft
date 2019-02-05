@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   queue.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/25 23:20:28 by kbatz             #+#    #+#             */
-/*   Updated: 2019/01/08 19:35:48 by kbatz            ###   ########.fr       */
+/*   Created: 2019/02/05 00:53:03 by kbatz             #+#    #+#             */
+/*   Updated: 2019/02/05 02:11:57 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef QUEUE_H
+# define QUEUE_H
 
-# define BUFF_SIZE 4
+#include "libft.h"
 
-# include "libft.h"
-
-typedef struct		s_file
+typedef struct			s_queue
 {
-	char			*line;
-	int				fd;
-}					t_file;
+	t_elem				*start;
+	t_elem				*end;
+	size_t				len;
+}						t_queue;
 
-int					get_next_line(const int fd, char **line);
+t_elem					*ft_queue_pop(t_queue *queue);
+void					ft_queue_push(t_queue *queue, t_elem *tmp);
+t_queue					*ft_queue_new(void);
 
 #endif
