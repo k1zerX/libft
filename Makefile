@@ -6,11 +6,11 @@
 #    By: kbatz <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:33:15 by kbatz             #+#    #+#              #
-#    Updated: 2019/02/05 03:25:04 by kbatz            ###   ########.fr        #
+#    Updated: 2019/02/05 04:12:25 by kbatz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libft.a
+NAME	= libft.a
 
 # **************************************************************************** #
 
@@ -21,18 +21,22 @@ FLAG	=	-Wall -Wextra -Werror
 # **************************************************************************** #
 
 SRCS	=	$(wildcard $(SRCDIR)*)
-HDR 	=	$(wildcard $(HDRDIR)*)
+HDR 	=	$(wildcard $(HDRDIR)*.h)
 SRC		=
 
 $(foreach S,$(SRCS), \
-	$(eval SRC += $(wildcard $(S)/*)) \
+	$(eval SRC += $(wildcard $(S)/*.c)) \
 )
 
 OBJ		=	$(SRC:%.c=%.o)
 
 # **************************************************************************** #
 
+#ifeq "$(wildcard ./*.a)" ""
 all: $(NAME)
+#else
+#all:
+#endif
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
@@ -44,7 +48,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -Rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
