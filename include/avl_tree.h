@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rbtree.h                                           :+:      :+:    :+:   */
+/*   avl_tree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 00:59:09 by kbatz             #+#    #+#             */
-/*   Updated: 2019/02/05 02:12:10 by kbatz            ###   ########.fr       */
+/*   Created: 2019/05/25 14:29:57 by kbatz             #+#    #+#             */
+/*   Updated: 2019/09/11 23:45:56 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RBTREE_H
-# define RBTREE_H
+#ifndef AVL_TREE_H
+# define AVL_TREE_H
 
-#include "libft.h"
+# include "libft.h"
 
-# define BLACK 0
-# define RED 1
-
-typedef struct			s_rbnode
+typedef struct			s_avl_node
 {
 	void				*content;
 	size_t				content_size;
-	char				color;
-	struct s_btree		*parent;
-	struct s_btree		*left;
-	struct s_btree		*right;
-}						t_rbnode;
+	struct s_avl_node	*left;
+	struct s_avl_node	*right;
+	unsigned char		height;
+}						t_avl_node;
 
-typedef struct			s_rbtree
+typedef struct			s_avl_tree
 {
-	struct s_btree		*root;
-	size_t				height;
-}						t_rbtree;
+	size_t				n;
+	struct s_avl_node	*root;
+	int					(*cmp)(t_avl_node *a, t_avl_node *b);
+}						t_avl_tree;
+
+t_avl_node			*ft_balance(t_avl_node *node);
 
 #endif

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bintree_suffix.c                                :+:      :+:    :+:   */
+/*   ft_avl_rotl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 17:54:55 by kbatz             #+#    #+#             */
-/*   Updated: 2018/12/20 13:29:19 by kbatz            ###   ########.fr       */
+/*   Created: 2019/09/11 21:56:30 by kbatz             #+#    #+#             */
+/*   Updated: 2019/09/11 22:22:52 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_btree_suffix(t_btree *start, void (*f)(t_btree *))
+void	ft_avl_rotl(t_avl_node *node)
 {
-	if (!start || !f)
-		return ;
-	ft_btree_suffix(start->left, f);
-	ft_btree_suffix(start->right, f);
-	(*f)(start);
+	t_avl_node	*tmp;
+
+	tmp = node->right;
+	node->right = tmp->left;
+	tmp->left = node;
 }
