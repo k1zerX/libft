@@ -13,7 +13,7 @@
 #ifndef STR_H
 # define STR_H
 
-#include "libft.h"
+# include "libft.h"
 
 int						ft_atoi(const char *str);
 char					*ft_itoa(int n);

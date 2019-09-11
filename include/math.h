@@ -13,7 +13,7 @@
 #ifndef MATH_H
 # define MATH_H
 
-#include "libft.h"
+# include "libft.h"
 
 # define LOG_PR 0.000001
 # define LOG_ADD_PR 1000000

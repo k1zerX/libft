@@ -13,7 +13,7 @@
 #ifndef GNL_H
 # define GNL_H
 
-#include "libft.h"
+# include "libft.h"
 
 # define BUFF_SIZE 30
 

@@ -13,7 +13,7 @@
 #ifndef CHAR_H
 # define CHAR_H
 
-#include "libft.h"
+# include "libft.h"
 
 int						ft_isalnum(int c);
 int						ft_isalpha(int c);

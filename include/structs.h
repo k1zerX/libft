@@ -13,7 +13,7 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct			s_elem
 {

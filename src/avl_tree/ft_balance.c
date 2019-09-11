@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 23:24:00 by kbatz             #+#    #+#             */
-/*   Updated: 2019/09/11 23:48:47 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/09/11 23:51:16 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ t_avl_node			*ft_balance(t_avl_node *node)
 	{
 		if (bfactor(node->right) < 0)
 			node->right = ft_rotr(node->right);
-		return ft_rotl(node);
+		return (ft_rotl(node));
 	}
 	else if (b == -2)
 	{
 		if (bfactor(node->left) > 0)
 			node->right = ft_rotl(node->left);
-		return ft_rotr(node);
+		return (ft_rotr(node));
 	}
 	return (node);
 }

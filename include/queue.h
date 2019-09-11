@@ -13,7 +13,7 @@
 #ifndef QUEUE_H
 # define QUEUE_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct			s_queue
 {
