@@ -33,7 +33,7 @@ typedef struct			s_avl_tree
 
 t_avl_node			*ft_balance(t_avl_node *node);
 void				ft_avl_insert(t_avl_tree *tree, t_avl_node *node);
-t_avl_node			*ft_avl_node_new(void *content, size_t content_size, char copy);
-t_avl_tree			*ft_avl_tree_new(int (*cmp)(t_avl_node *a, t_avl_node *b));
+t_avl_node			*ft_avl_new_node(void *content, size_t content_size, char copy);
+t_avl_tree			*ft_avl_new_tree(int (*cmp)(t_avl_node *a, t_avl_node *b));
 
 #endif
