@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_avl_node_new.c                                  :+:      :+:    :+:   */
+/*   avl_new_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_avl_node	*ft_avl_node_new(void *content, size_t content_size, char copy)
+t_avl_node	*avl_new_node(void *content, size_t content_size, char copy)
 {
 	t_avl_node	*tmp;
 

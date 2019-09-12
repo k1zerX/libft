@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_avl_tree_new.c                                  :+:      :+:    :+:   */
+/*   avl_new_tree.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_avl_tree	*ft_avl_tree_new(int (*cmp)(t_avl_node *a, t_avl_node *b))
+t_avl_tree	*avl_new_tree(int (*cmp)(t_avl_node *a, t_avl_node *b))
 {
 	t_avl_tree	*tmp;
 

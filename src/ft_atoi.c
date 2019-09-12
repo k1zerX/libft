@@ -25,5 +25,5 @@ int		ft_atoi(const char *str)
 		sign = *str++ == '-';
 	while (*str >= '0' && *str <= '9')
 		res = res * 10 + (*str++ - '0');
-	return ((int)res);
+	return ((int)(sign ? -res : res));
 }
