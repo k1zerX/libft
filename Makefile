@@ -6,7 +6,7 @@
 #    By: kbatz <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:33:15 by kbatz             #+#    #+#              #
-#    Updated: 2019/09/13 21:51:38 by kbatz            ###   ########.fr        #
+#    Updated: 2019/09/13 21:55:16 by kbatz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,11 @@ vpath %.o $(OBJDIR)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJDIR) $(OBJ)
 	ar rc $(NAME) $(addprefix $(OBJDIR),$(OBJ))
 	ranlib $(NAME)
 
-$(OBJ): %.o: %.c $(HDR) $(OBJDIR)
+$(OBJ): %.o: %.c $(HDR)
 	gcc $(FLAG) -I$(HDRDIR) -I./ -o $(OBJDIR)$@ -c $<
 # -I./ ubrat' kostyl'
 
