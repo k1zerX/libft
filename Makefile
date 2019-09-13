@@ -20,19 +20,14 @@ FLAG	=	-Wall -Wextra -Werror
 
 # **************************************************************************** #
 
-SRCS	=	$(wildcard $(SRCDIR)*)
+SRC		=	$(wildcard $(SRCDIR)*.c)
 HDR 	=	$(wildcard $(HDRDIR)*.h)
-SRC		=
-
-$(foreach S,$(SRCS), \
-	$(eval SRC += $(wildcard $(S)/*.c)) \
-)
-
 OBJ		=	$(SRC:%.c=%.o)
 
 # **************************************************************************** #
 
 all: $(NAME)
+	echo $(SRC)
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)

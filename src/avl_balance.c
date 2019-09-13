@@ -14,8 +14,7 @@
 
 static char			bfactor(t_avl_node *node)
 {
-	return (((node->right) ? ((int)node->right->height) : (0)) - \
-			((node->left) ? ((int)node->left->height) : (0)));
+	return (HEIGHT(node->right) - HEIGHT(node->left));
 }
 
 static void			fixheight(t_avl_node *node)
@@ -23,8 +22,8 @@ static void			fixheight(t_avl_node *node)
 	unsigned char	hl;
 	unsigned char	hr;
 
-	hl = (node->left) ? (node->left->height) : (0);
-	hr = (node->right) ? (node->right->height) : (0);
+	hl = HEIGHT(node->left);
+	hr = HEIGHT(node->right);
 	node->height = (hl > hr) ? (hl) : (hr) + 1;
 }
 
@@ -52,19 +51,34 @@ static t_avl_node	*rotr(t_avl_node *node)
 	return (tmp);
 }
 
+void	test_print(t_avl_node *node)
+{
+	printf("%s ", (char *)node->content);
+}
+
 t_avl_node			*avl_balance(t_avl_node *node)
 {
 	char	b;
 
+//	printf("before\n");
+//	printf("after\n");
+//	printf("\t%s\n", (node) ? ((char *)node->content) : (NULL));
+//	t_avl_tree *tmp_tree = avl_new_tree(NULL);
+//	tmp_tree->root = node;
+//	avl_bfs(tmp_tree, &test_print);
+//	free(tmp_tree);
+//	printf("\n");
 	fixheight(node);
 	if ((b = bfactor(node)) == 2)
 	{
+//		printf("rotl\n");
 		if (bfactor(node->right) < 0)
 			node->right = rotr(node->right);
 		return (rotl(node));
 	}
 	else if (b == -2)
 	{
+//		printf("rotr\n");
 		if (bfactor(node->left) > 0)
 			node->right = rotl(node->left);
 		return (rotr(node));

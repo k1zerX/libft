@@ -15,6 +15,8 @@
 
 # include "libft.h"
 
+# define HEIGHT(x) ((x) ? (x->height) : (0))
+
 typedef struct			s_avl_node
 {
 	void				*content;
@@ -31,9 +33,11 @@ typedef struct			s_avl_tree
 	int					(*cmp)(t_avl_node *a, t_avl_node *b);
 }						t_avl_tree;
 
-t_avl_node			*balance(t_avl_node *node);
+t_avl_node			*avl_balance(t_avl_node *node);
 void				avl_insert(t_avl_tree *tree, t_avl_node *node);
 t_avl_node			*avl_new_node(void *content, size_t content_size, char copy);
 t_avl_tree			*avl_new_tree(int (*cmp)(t_avl_node *a, t_avl_node *b));
+void				avl_bfs(t_avl_tree *tree, void (*f)(t_avl_node *node));
+void				avl_infix(t_avl_tree *tree, void (*f)(t_avl_node *node));
 
 #endif

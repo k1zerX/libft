@@ -21,10 +21,23 @@ static t_avl_node	*avl_rec_ins(t_avl_node *tmp, t_avl_node *node, \
 		tmp->left = avl_rec_ins(tmp->left, node, cmp);
 	else
 		tmp->right = avl_rec_ins(tmp->right, node, cmp);
-	return (ft_balance(node));
+//	printf("%p\t", (node->left) ? (node->left) : (NULL));
+//	printf("%p\n", (node->right) ? (node->right) : (NULL));
+//	return (avl_balance(tmp));
+	return (tmp);
 }
 
 void				avl_insert(t_avl_tree *tree, t_avl_node *node)
 {
+/*	printf(" |  |  |  |  |  |  |  |  |  |  |  |\n");
+	printf("\\-/\\-/\\-/\\-/\\-/\\-/\\-/\\-/\\-/\\-/\\-/\\-/\n");
+	printf("insert-IN\n");
+	printf("\n");*/
+//	printf("vsavka %s:\n", (node) ? ((char *)node->content) : (NULL));
 	tree->root = avl_rec_ins(tree->root, node, tree->cmp);
+/*	printf("\n");
+	printf("insert-OUT\n");
+	printf("/-\\/-\\/-\\/-\\/-\\/-\\/-\\/-\\/-\\/-\\/-\\/-\\\n");
+	printf(" |  |  |  |  |  |  |  |  |  |  |  |\n");
+	printf("------------------------------------\n");*/
 }

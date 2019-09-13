@@ -33,6 +33,5 @@ t_avl_node	*avl_new_node(void *content, size_t content_size, char copy)
 		else
 			tmp->content = content;
 	}
-	tmp->height = 1;
 	return (tmp);
 }
