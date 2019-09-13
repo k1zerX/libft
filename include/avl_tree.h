@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 14:29:57 by kbatz             #+#    #+#             */
-/*   Updated: 2019/09/12 00:09:52 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/09/13 21:39:01 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_avl_node			*avl_balance(t_avl_node *node);
 void				avl_insert(t_avl_tree *tree, t_avl_node *node);
 t_avl_node			*avl_new_node(void *content, size_t content_size, char copy);
 t_avl_tree			*avl_new_tree(int (*cmp)(t_avl_node *a, t_avl_node *b));
-void				avl_bfs(t_avl_tree *tree, void (*f)(t_avl_node *node));
-void				avl_infix(t_avl_tree *tree, void (*f)(t_avl_node *node));
+void				avl_bfs(t_avl_node *node, void (*f)(t_avl_node *node));
+void				avl_infix(t_avl_node *node, void (*f)(t_avl_node *node));
 
 #endif

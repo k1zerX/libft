@@ -6,7 +6,7 @@
 #    By: kbatz <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:33:15 by kbatz             #+#    #+#              #
-#    Updated: 2019/08/26 16:58:33 by kbatz            ###   ########.fr        #
+#    Updated: 2019/09/13 21:51:38 by kbatz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,28 +16,37 @@ NAME	= libft.a
 
 HDRDIR	=	include/
 SRCDIR	=	src/
+OBJDIR	=	.obj/
 FLAG	=	-Wall -Wextra -Werror
 
 # **************************************************************************** #
 
-SRC		=	$(wildcard $(SRCDIR)*.c)
+SRC		=	$(patsubst $(SRCDIR)%,%,$(wildcard $(SRCDIR)*.c))
 HDR 	=	$(wildcard $(HDRDIR)*.h)
 OBJ		=	$(SRC:%.c=%.o)
 
 # **************************************************************************** #
 
+vpath %.c $(SRCDIR)
+vpath %.o $(OBJDIR)
+
+# **************************************************************************** #
+
 all: $(NAME)
-	echo $(SRC)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rc $(NAME) $(addprefix $(OBJDIR),$(OBJ))
 	ranlib $(NAME)
 
-$(OBJ): %.o: %.c $(HDR)
-	gcc $(FLAG) -I$(HDRDIR) -o $@ -c $<
+$(OBJ): %.o: %.c $(HDR) $(OBJDIR)
+	gcc $(FLAG) -I$(HDRDIR) -I./ -o $(OBJDIR)$@ -c $<
+# -I./ ubrat' kostyl'
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
 
 clean:
-	rm -f $(OBJ)
+	rm -Rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
