@@ -51,36 +51,21 @@ static t_avl_node	*rotr(t_avl_node *node)
 	return (tmp);
 }
 
-void	test_print(t_avl_node *node)
-{
-	printf("%s ", (char *)node->content);
-}
-
 t_avl_node			*avl_balance(t_avl_node *node)
 {
 	char	b;
 
-//	printf("before\n");
-//	printf("after\n");
-//	printf("\t%s\n", (node) ? ((char *)node->content) : (NULL));
-//	t_avl_tree *tmp_tree = avl_new_tree(NULL);
-//	tmp_tree->root = node;
-//	avl_bfs(tmp_tree, &test_print);
-//	free(tmp_tree);
-//	printf("\n");
 	fixheight(node);
 	if ((b = bfactor(node)) == 2)
 	{
-//		printf("rotl\n");
 		if (bfactor(node->right) < 0)
 			node->right = rotr(node->right);
 		return (rotl(node));
 	}
 	else if (b == -2)
 	{
-//		printf("rotr\n");
 		if (bfactor(node->left) > 0)
-			node->right = rotl(node->left);
+			node->left = rotl(node->left);
 		return (rotr(node));
 	}
 	return (node);
