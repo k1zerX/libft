@@ -27,4 +27,5 @@ static t_avl_node	*avl_rec_ins(t_avl_node *tmp, t_avl_node *node, \
 void				avl_insert(t_avl_tree *tree, t_avl_node *node)
 {
 	tree->root = avl_rec_ins(tree->root, node, tree->cmp);
+	++tree->n;
 }
