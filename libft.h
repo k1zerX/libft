@@ -6,7 +6,7 @@
 /*   By: kbatz <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:48:49 by kbatz             #+#    #+#             */
-/*   Updated: 2019/09/13 22:50:17 by kbatz            ###   ########.fr       */
+/*   Updated: 2019/10/25 23:20:47 by kbatz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,12 @@ typedef struct			s_list
 int						gnl(const int fd, char **line);
 t_avl_node				*avl_balance(t_avl_node *node);
 void					avl_insert(t_avl_tree *tree, t_avl_node *node);
-t_avl_node				*avl_new_node(void *content, size_t content_size, char copy);
+t_avl_node				*avl_new_node(void *content, size_t content_size, \
+							char copy);
 t_avl_tree				*avl_new_tree(int (*cmp)(t_avl_node *a, t_avl_node *b));
 void					avl_bfs(t_avl_node *node, void (*f)(t_avl_node *node));
-void					avl_infix(t_avl_node *node, void (*f)(t_avl_node *node));
+void					avl_infix(t_avl_node *node, \
+							void (*f)(t_avl_node *node));
 int						ft_isalnum(int c);
 int						ft_isalpha(int c);
 int						ft_isascii(int c);
